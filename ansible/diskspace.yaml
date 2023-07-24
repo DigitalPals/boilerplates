@@ -10,8 +10,8 @@
       register: disk_usage
     - name: send discord message when disk space is over 80%
       telegram:
-      token: {{telegram_token}}
-      chat_id: {{chat_id}}
+      token: "{{telegram_token}}"
+      chat_id: "{{chat_id}}"
       msg: Ansible task finished
 
     #   uri:
