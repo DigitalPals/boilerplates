@@ -8,7 +8,12 @@
     - name: check disk space available
       shell: df -h / | awk 'NR==2 {print $5}'
       register: disk_usage
-    # - name: send discord message when disk space is over 80%
+    - name: send discord message when disk space is over 80%
+      telegram:
+      token: {{telegram_token}}
+      chat_id: {{chat_id}}
+      msg: Ansible task finished
+
     #   uri:
     #     url: "your-webhook"
     #     method: POST
