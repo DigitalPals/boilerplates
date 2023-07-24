@@ -12,7 +12,8 @@
       telegram:
         token: "{{telegram_token}}"
         chat_id: "{{chat_id}}"
-        msg: Ansible task finished
+        msg: '{"content": "Disk space on {{ inventory_hostname }} is above 80%!"}'
+      when: disk_usage.stdout[:-1]|int > 2
 
     #   uri:
     #     url: "your-webhook"
